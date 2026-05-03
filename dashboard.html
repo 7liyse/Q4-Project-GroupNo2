@@ -1,1 +1,80 @@
+<!DOCTYPE html>
 
+<style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background: var(--dark);
+      color: var(--light);
+    }
+
+    /* Sidebar (basic only) */
+    .sidebar {
+      width: 200px;
+      height: 100vh;
+      background: var(--red);
+      padding: 15px;
+    }
+
+    /* Main area */
+    .main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Cards container */
+    .cards {
+      display: flex;
+      gap: 15px;
+    }
+
+    .card {
+      flex: 1;
+      padding: 15px;
+      border-radius: 8px;
+      color: black;
+    }
+
+    .red { background: var(--red); }
+    .green { background: var(--green); }
+
+    /* TODO: partner can add yellow & blue cards */
+
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Menu</h3>
+    <p>Home</p>
+    <p>Analytics</p>
+    <!-- TODO: add more nav items -->
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Dashboard</h1>
+
+    <!-- Cards (partially done) -->
+    <div class="cards">
+      <div class="card red">
+        <h4>Red Data</h4>
+        <p>--</p>
+      </div>
+
+      <div class="card green">
+        <h4>Green Data</h4>
+        <p>--</p>
+      </div>
+
+      <!-- TODO: partner continues here -->
+    </div>
+
+    <!-- TODO: add table / charts here -->
+
+  </div>
+
+</body>
+</html>
