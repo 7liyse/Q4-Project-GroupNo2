@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebooks - School Portal</title>
+    <style>
+        * { box-sizing: border-box; font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; }
+        
+        body {
+            background-color: #e2e2e2;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
 
+        .sidebar {
+            width: 260px;
+            background-color:#171617;
+            color: rgb(34, 10, 10);
+            display: flex;
+            flex-direction: column;
+            padding: 40px 0;
+            flex-shrink: 0;
+        }
+
+        .sidebar-logo {
+            width: 80px;
+            margin: 0 auto 40px auto;
+        }
+
+        .nav-item {
+            padding: 15px 30px;
+            color: #351b1b;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: rgb(48, 48, 48);
+            color: white;
+        }
+
+        .logout-btn {
+            margin-top: auto;
+            color: #ffffff;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+        }
+
+        .header-section {
+            margin-bottom: 30px;
+        }
+
+        .title-pill {
+            background-image: linear-gradient(to right, #B7313A, #43A63C, #FFFD90,#477597 );
+            color: rgb(255, 255, 255);
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid #2f1f1ccb;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+
+        .notebook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+ /* red */
+        .subject-card1 {
+            background-image: linear-gradient(to bottom, #171617, #B7313A );
+            border: 2px solid #000000;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .subject-card1:hover { transform: translateY(-5px); }
+ /* green */
+             .subject-card2 {
+             background-image: linear-gradient(to bottom, #171617, #43A63C );
+            border: 2px solid #000000;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .subject-card2:hover { transform: translateY(-5px); }
+
+/* yellow */
+             .subject-card3 {
+             background-image: linear-gradient(to bottom, #171617, #FFFD90 );
+            border: 2px solid #000000;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .subject-card3:hover { transform: translateY(-5px); }
+
+/* blue */
+             .subject-card4 {
+             background-image: linear-gradient(to bottom, #171617, #477597 );
+            border: 2px solid #000000;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .subject-card4:hover { transform: translateY(-5px); }
+
+        .subject-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .card-image-box1 {
+            background: #fff url(https://cdn.discordapp.com/attachments/1150311417233276938/1500517927735267509/Untitled2_20260503232148.png?ex=69f8b9b8&is=69f76838&hm=986bcad87e5b2093dbeccd92be4eb00a9fd11f8cdaafa72f2337187888f05ec8) center/cover;  
+            height: 120px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+           .card-image-box2 {
+            background: #fff url(https://pbs.twimg.com/media/GMpwcFFXkAEM8wY?format=jpg&name=medium) center/cover;  
+            height: 120px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+            .card-image-box3 {
+            background: #fff url(https://pbs.twimg.com/media/GNNzVpCXYAECVQh?format=jpg&name=medium) center/cover;  
+            height: 120px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+            .card-image-box4 {
+            background: #fff url(https://pbs.twimg.com/media/GMMDltOWAAAMiS0?format=jpg&name=medium) center/cover;  
+            height: 120px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .class-info {
+            font-size: 13px;
+            color: #000000;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Heathers-_The_Musical_logo.png" alt="Logo" class="sidebar-logo">
+        
+        <a href="#" class="nav-item" style="color: #B7313A" href="dashboard.html">✧ Dashboard</a>
+        <a href="#" class="nav-item active" style="color:#43A63C" > ✧ Virtual Notebooks</a>
+        <a href="#" class="nav-item" style="color:#FFFD90" href="tasks.html">✧ Tasks</a>
+        <a href="#" class="nav-item" style="color:#477597" href="profile.html">✧ Profile</a>
+        <a href="#" class="nav-item logout-btn" onclick="handleLogout()">logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header-section">
+            <div class="title-pill">YOUR NOTEBOOKS  </div>
+            <p class="subtitle"> ⤷ Choose your subject . . .</p>
+        </div>
+
+        <div class="notebook-grid">
+            <div class="subject-card3">
+                <h2 class="subject-name">✧ SOCIAL STUDIES</h2>
+                <div class="card-image-box3"></div>
+                <p class="class-info">9-RUBY 2025-2026</p>
+                <p class="teacher-name">(˵◝ ⩊  ◜˵マ</p>
+                <div class="card-progress-bar"></div>
+            </div>
+
+            <div class="subject-card1">
+                <h2 class="subject-name">✧ ENGLISH</h2>
+                <div class="card-image-box1"></div>
+                <p class="class-info">9-RUBY 2025-2026</p>
+                <p class="teacher-name">(˵◝ ⩊  ◜˵マ</p>
+                <div class="card-progress-bar"></div>
+            </div>
+
+            <div class="subject-card4">
+                <h2 class="subject-name">✧ MATHEMATHICS</h2>
+                <div class="card-image-box4"></div>
+                <p class="class-info">9-RUBY 2025-2026</p>
+                <p class="teacher-name">(˵◝ ⩊  ◜˵マ</p>
+                <div class="card-progress-bar"></div>
+            </div>
+
+            <div class="subject-card2">
+                <h2 class="subject-name">✧ SCIENCE</h2>
+                <div class="card-image-box2"></div>
+                <p class="class-info">9-RUBY 2025-2026</p>
+                <p class="teacher-name">(˵◝ ⩊  ◜˵マ</p>
+                <div class="card-progress-bar"></div>
+            </div>
+
+            <div class="subject-card3">
+                <h2 class="subject-name">✧ FILIPINO</h2>
+                <div class="card-image-box3"></div>
+                <p class="class-info">9-RUBY 2025-2026</p>
+                <p class="teacher-name">(˵◝ ⩊  ◜˵マ</p>
+                <div class="card-progress-bar"></div>
+            </div>
+
+            <div class="subject-card4">
+                <h2 class="subject-name">✧ MUSIC & ARTS</h2>
+                <div class="card-image-box4"></div>
+                <p class="class-info">9-RUBY 2025-2026</p>
+                <p class="teacher-name">(˵◝ ⩊  ◜˵マ</p>
+                <div class="card-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function handleLogout() {
+            if(confirm("are you sure you want to logout?")) {
+                // Redirects back to your login page
+                window.location.href = "index.html";
+            }
+        }
+    </script>
+</body>
+</html>
